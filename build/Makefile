@@ -8,7 +8,7 @@ clean: force
 	gprclean -r ../tdd.gpr
 	rm -rf ../build/obj
 	rm -f ../build/default.cgpr
-	rm -rf ../docs/*
+	rm -rf ../docs/gnatdoc
 	rm -rf ../test/harness
 
 test:
@@ -18,7 +18,7 @@ test:
 	../test/harness/test_runner.exe
 
 docs:
-	mkdir -p ../docs
+	mkdir -p ../docs/gnatdoc
 	gnatdoc -P../tdd.gpr
 
 run: all
