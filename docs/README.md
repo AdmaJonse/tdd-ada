@@ -15,5 +15,5 @@ To generate documentation:
 To generate and execute unit tests:  
 `make test`
 
-To clean project fileS:  
+To clean project files:  
 `make clean`
