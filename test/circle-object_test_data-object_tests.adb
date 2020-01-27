@@ -5,7 +5,6 @@
 --  code intended to set up and tear down the test environment should be
 --  placed into Circle.Object_Test_Data.
 
-with Ada.Numerics;
 with AUnit.Assertions; use AUnit.Assertions;
 with System.Assertions;
 
@@ -15,6 +14,8 @@ with System.Assertions;
 --  This section can be used to add with clauses if necessary.
 --
 --  end read only
+
+with Ada.Numerics;
 
 --  begin read only
 --  end read only
