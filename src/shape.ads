@@ -5,7 +5,7 @@
 --  @description
 --  This package defines the operations that may be performed by a Shape.
 --
-package Shape is
+package Shape with Pure is
 
   type Object is interface;
 
@@ -40,7 +40,7 @@ package Shape is
   --
   function Area
     (This : in Object)
-     return Natural is abstract;
+     return Float is abstract;
 
   --  Return the perimeter of the given Shape object.
   --
@@ -49,6 +49,6 @@ package Shape is
   --  @return  the perimeter of the Shape
   function Perimeter
     (This : in Object)
-     return Natural is abstract;
+     return Float is abstract;
 
 end Shape;
