@@ -22,7 +22,7 @@ package body Rectangle is
     (Left  : in Object;
      Right : in Object)
      return Boolean is
-    (Left.Length = Right.Length and Left.Width = Left.Length);
+    (Left.Length = Right.Length and Left.Width = Right.Width);
 
   ------------------------------------------------------------------------------
   --

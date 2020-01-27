@@ -1,2 +1,4 @@
 build/obj
+build/tdd.exe
 docs/gnatdoc
+test/harness/
