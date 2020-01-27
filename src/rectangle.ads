@@ -1,6 +1,6 @@
 with Shape;
 
-package Rectangle is
+package Rectangle with Pure is
 
   type Object is new Shape.Object with private;
 
@@ -12,8 +12,8 @@ package Rectangle is
   --  @return  the Rectangle object
   --
   function Make
-    (Length : in Natural;
-     Width  : in Natural)
+    (Length : in Float;
+     Width  : in Float)
      return Object;
 
   --  Return a string representation of the given Rectangle object.
@@ -46,7 +46,7 @@ package Rectangle is
   overriding
   function Area
     (This : in Object)
-     return Natural;
+     return Float;
 
   --  Return the perimeter of the given Rectangle object.
   --
@@ -54,14 +54,14 @@ package Rectangle is
   overriding
   function Perimeter
     (This : in Object)
-     return Natural;
+     return Float;
 
 private
 
   type Object is new Shape.Object with
     record
-      Length : Natural;
-      Width  : Natural;
+      Length : Float;
+      Width  : Float;
     end record;
 
 end Rectangle;

@@ -31,8 +31,8 @@ package body Rectangle.Object_Test_Data.Object_Tests is
 
 --  begin read only
    procedure Test_Make (Gnattest_T : in out Test_Object);
-   procedure Test_Make_38cecc (Gnattest_T : in out Test_Object) renames Test_Make;
---  id:2.2/38cecc73236c432f/Make/1/0/
+   procedure Test_Make_0b3516 (Gnattest_T : in out Test_Object) renames Test_Make;
+--  id:2.2/0b3516f945b2459c/Make/1/0/
    procedure Test_Make (Gnattest_T : in out Test_Object) is
    --  rectangle.ads:14:3:Make
 --  end read only
@@ -41,7 +41,7 @@ package body Rectangle.Object_Test_Data.Object_Tests is
 
    begin
 
-      -- No unit tests for Make
+      -- No unit tests for constructor
       null;
 
 --  begin read only
@@ -59,36 +59,36 @@ package body Rectangle.Object_Test_Data.Object_Tests is
 
       pragma Unreferenced (Gnattest_T);
 
-      Rectangle_One         : constant Rectangle.Object := Rectangle.Make (Length => 1, Width => 1);
-      Rectangle_Two         : constant Rectangle.Object := Rectangle.Make (Length => 2, Width => 3);
-      Rectangle_Three       : constant Rectangle.Object := Rectangle.Make (Length => 16, Width => 99);
-      Rectangle_Four        : constant Rectangle.Object := Rectangle.Make (Length => 102, Width => 987);
+      Rectangle_One   : constant Rectangle.Object := Rectangle.Make (1.0, 1.0);
+      Rectangle_Two   : constant Rectangle.Object := Rectangle.Make (2.0, 3.0);
+      Rectangle_Three : constant Rectangle.Object := Rectangle.Make (16.0, 99.0);
+      Rectangle_Four  : constant Rectangle.Object := Rectangle.Make (102.0, 987.0);
 
-      Expected_String_One   : constant String := "Rectangle - length:  1, width:  1";
-      Expected_String_Two   : constant String := "Rectangle - length:  2, width:  3";
-      Expected_String_Three : constant String := "Rectangle - length:  16, width:  99";
-      Expected_String_Four  : constant String := "Rectangle - length:  102, width:  987";
+      String_One      : constant String := "Rectangle - length:  1.00000E+00, width:  1.00000E+00";
+      String_Two      : constant String := "Rectangle - length:  2.00000E+00, width:  3.00000E+00";
+      String_Three    : constant String := "Rectangle - length:  1.60000E+01, width:  9.90000E+01";
+      String_Four     : constant String := "Rectangle - length:  1.02000E+02, width:  9.87000E+02";
 
    begin
 
       AUnit.Assertions.Assert
         (Actual   => Rectangle_One.Image,
-         Expected => Expected_String_One,
+         Expected => String_One,
          Message  => "Unexpected output for Rectangle_One.");
 
       AUnit.Assertions.Assert
         (Actual   => Rectangle_Two.Image,
-         Expected => Expected_String_Two,
+         Expected => String_Two,
          Message  => "Unexpected output for Rectangle_Two");
 
       AUnit.Assertions.Assert
         (Actual   => Rectangle_Three.Image,
-         Expected => Expected_String_Three,
+         Expected => String_Three,
          Message  => "Unexpected output for Rectangle_Three.");
 
       AUnit.Assertions.Assert
         (Actual   => Rectangle_Four.Image,
-         Expected => Expected_String_Four,
+         Expected => String_Four,
          Message  => "Unexpected output for Rectangle_Four.");
 
 --  begin read only
@@ -106,28 +106,28 @@ package body Rectangle.Object_Test_Data.Object_Tests is
 
       pragma Unreferenced (Gnattest_T);
 
-      Rectangle_One   : constant Rectangle.Object := Rectangle.Make (Length => 7, Width => 7);
-      Rectangle_Two   : constant Rectangle.Object := Rectangle.Make (Length => 7, Width => 7);
-      Rectangle_Three : constant Rectangle.Object := Rectangle.Make (Length => 3, Width => 4);
-      Rectangle_Four  : constant Rectangle.Object := Rectangle.Make (Length => 3, Width => 4);
+      Rectangle_One   : constant Rectangle.Object := Rectangle.Make (7.0, 7.0);
+      Rectangle_Two   : constant Rectangle.Object := Rectangle.Make (7.0, 7.0);
+      Rectangle_Three : constant Rectangle.Object := Rectangle.Make (3.0, 4.0);
+      Rectangle_Four  : constant Rectangle.Object := Rectangle.Make (3.0, 4.0);
 
    begin
 
       AUnit.Assertions.Assert
         (Condition => Rectangle.Equals (Rectangle_One, Rectangle_Two),
-         Message   => "Rectangles One and Two are not equivalent.");
+         Message   => "Rectangles one and two are not equivalent.");
 
       AUnit.Assertions.Assert
         (Condition => Rectangle.Equals (Rectangle_Three, Rectangle_Four),
-         Message   => "Rectangles Three and Four are not equivalent.");
+         Message   => "Rectangles three and four are not equivalent.");
 
       AUnit.Assertions.Assert
         (Condition => not Rectangle.Equals (Rectangle_One, Rectangle_Four),
-         Message   => "Rectangles One and Four are equivalent.");
+         Message   => "Rectangles one and four are equivalent.");
 
       AUnit.Assertions.Assert
         (Condition => not Rectangle.Equals (Rectangle_Two, Rectangle_Three),
-         Message   => "Rectangles Two and Three are equivalent.");
+         Message   => "Rectangles two and three are equivalent.");
 
 --  begin read only
    end Test_Equals;
@@ -136,40 +136,40 @@ package body Rectangle.Object_Test_Data.Object_Tests is
 
 --  begin read only
    procedure Test_Area (Gnattest_T : in out Test_Object);
-   procedure Test_Area_e5361e (Gnattest_T : in out Test_Object) renames Test_Area;
---  id:2.2/e5361e3762735e0f/Area/1/0/
+   procedure Test_Area_73bab9 (Gnattest_T : in out Test_Object) renames Test_Area;
+--  id:2.2/73bab9603bcb06f2/Area/1/0/
    procedure Test_Area (Gnattest_T : in out Test_Object) is
    --  rectangle.ads:46:3:Area
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
 
-      Rectangle_One       : constant Rectangle.Object := Rectangle.Make (Length => 1, Width => 1);
-      Rectangle_Two       : constant Rectangle.Object := Rectangle.Make (Length => 2, Width => 3);
-      Rectangle_Three     : constant Rectangle.Object := Rectangle.Make (Length => 16, Width => 99);
-      Rectangle_Four      : constant Rectangle.Object := Rectangle.Make (Length => 102, Width => 987);
+      Rectangle_One   : constant Rectangle.Object := Rectangle.Make (1.0, 1.0);
+      Rectangle_Two   : constant Rectangle.Object := Rectangle.Make (2.0, 3.0);
+      Rectangle_Three : constant Rectangle.Object := Rectangle.Make (16.0, 99.0);
+      Rectangle_Four  : constant Rectangle.Object := Rectangle.Make (102.0, 987.0);
 
-      Expected_Area_One   : constant Natural := 1;
-      Expected_Area_Two   : constant Natural := 6;
-      Expected_Area_Three : constant Natural := 1584;
-      Expected_Area_Four  : constant Natural := 100674;
+      Area_One        : constant Float := 1.0;
+      Area_Two        : constant Float := 6.0;
+      Area_Three      : constant Float := 1584.0;
+      Area_Four       : constant Float := 100674.0;
 
    begin
 
       AUnit.Assertions.Assert
-        (Condition => Rectangle_One.Area = Expected_Area_One,
+        (Condition => Rectangle_One.Area = Area_One,
          Message   => "Unexpected area for Rectangle_One.");
 
       AUnit.Assertions.Assert
-        (Condition   => Rectangle_Two.Area = Expected_Area_Two,
+        (Condition   => Rectangle_Two.Area = Area_Two,
          Message     => "Unexpected area for Rectangle_Two");
 
       AUnit.Assertions.Assert
-        (Condition   => Rectangle_Three.Area = Expected_Area_Three,
+        (Condition   => Rectangle_Three.Area = Area_Three,
          Message     => "Unexpected area for Rectangle_Three.");
 
       AUnit.Assertions.Assert
-        (Condition   => Rectangle_Four.Area = Expected_Area_Four,
+        (Condition   => Rectangle_Four.Area = Area_Four,
          Message     => "Unexpected area for Rectangle_Four.");
 
 --  begin read only
@@ -179,40 +179,40 @@ package body Rectangle.Object_Test_Data.Object_Tests is
 
 --  begin read only
    procedure Test_Perimeter (Gnattest_T : in out Test_Object);
-   procedure Test_Perimeter_b8dd91 (Gnattest_T : in out Test_Object) renames Test_Perimeter;
---  id:2.2/b8dd911634ecd27f/Perimeter/1/0/
+   procedure Test_Perimeter_94f34e (Gnattest_T : in out Test_Object) renames Test_Perimeter;
+--  id:2.2/94f34ebcf482f399/Perimeter/1/0/
    procedure Test_Perimeter (Gnattest_T : in out Test_Object) is
    --  rectangle.ads:54:3:Perimeter
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
 
-      Rectangle_One       : constant Rectangle.Object := Rectangle.Make (Length => 1, Width => 1);
-      Rectangle_Two       : constant Rectangle.Object := Rectangle.Make (Length => 2, Width => 3);
-      Rectangle_Three     : constant Rectangle.Object := Rectangle.Make (Length => 16, Width => 99);
-      Rectangle_Four      : constant Rectangle.Object := Rectangle.Make (Length => 102, Width => 987);
+      Rectangle_One   : constant Rectangle.Object := Rectangle.Make (1.0, 1.0);
+      Rectangle_Two   : constant Rectangle.Object := Rectangle.Make (2.0, 3.0);
+      Rectangle_Three : constant Rectangle.Object := Rectangle.Make (16.0, 99.0);
+      Rectangle_Four  : constant Rectangle.Object := Rectangle.Make (102.0, 987.0);
 
-      Expected_Perimeter_One   : constant Natural := 4;
-      Expected_Perimeter_Two   : constant Natural := 10;
-      Expected_Perimeter_Three : constant Natural := 230;
-      Expected_Perimeter_Four  : constant Natural := 2178;
+      Perimeter_One   : constant Float := 4.0;
+      Perimeter_Two   : constant Float := 10.0;
+      Perimeter_Three : constant Float := 230.0;
+      Perimeter_Four  : constant Float := 2178.0;
 
    begin
 
       AUnit.Assertions.Assert
-        (Condition => Rectangle_One.Perimeter = Expected_Perimeter_One,
+        (Condition => Rectangle_One.Perimeter = Perimeter_One,
          Message   => "Unexpected perimeter for Rectangle_One.");
 
       AUnit.Assertions.Assert
-        (Condition   => Rectangle_Two.Perimeter = Expected_Perimeter_Two,
+        (Condition   => Rectangle_Two.Perimeter = Perimeter_Two,
          Message     => "Unexpected perimeter for Rectangle_Two");
 
       AUnit.Assertions.Assert
-        (Condition   => Rectangle_Three.Perimeter = Expected_Perimeter_Three,
+        (Condition   => Rectangle_Three.Perimeter = Perimeter_Three,
          Message     => "Unexpected perimeter for Rectangle_Three.");
 
       AUnit.Assertions.Assert
-        (Condition   => Rectangle_Four.Perimeter = Expected_Perimeter_Four,
+        (Condition   => Rectangle_Four.Perimeter = Perimeter_Four,
          Message     => "Unexpected perimeter for Rectangle_Four.");
 
 --  begin read only

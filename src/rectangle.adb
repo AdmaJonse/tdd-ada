@@ -3,8 +3,8 @@ package body Rectangle is
   ------------------------------------------------------------------------------
   --
   function Make
-    (Length : in Natural;
-     Width  : in Natural)
+    (Length : in Float;
+     Width  : in Float)
      return Object is
     (Object'(Length => Length,
              Width  => Width));
@@ -28,14 +28,14 @@ package body Rectangle is
   --
   function Area
     (This : in Object)
-     return Natural is
+     return Float is
     (This.Length * This.Width);
 
   ------------------------------------------------------------------------------
   --
   function Perimeter
     (This : in Object)
-     return Natural is
-    (2 * This.Length + 2 * This.Width);
+     return Float is
+    (This.Length + This.Length + This.Width + This.Width);
 
 end Rectangle;
