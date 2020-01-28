@@ -12,7 +12,7 @@ package Circle is
    --
    function Make
      (Radius : in Float)
-     return Object;
+      return Object;
 
    --  Return a string representation of the given Circle object.
    --
@@ -21,7 +21,7 @@ package Circle is
    overriding
    function Image
      (This : in Object)
-     return String;
+      return String;
 
    --  Return a boolen indicating whether the given Circle objects
    --  are equivalent.
@@ -35,7 +35,7 @@ package Circle is
    function Equals
      (Left  : in Object;
       Right : in Object)
-     return Boolean;
+      return Boolean;
 
    --  Return the area of the given Circle object.
    --
@@ -44,7 +44,7 @@ package Circle is
    overriding
    function Area
      (This : in Object)
-     return Float;
+      return Float;
 
    --  Return the perimeter of the given Circle object.
    --
@@ -52,7 +52,7 @@ package Circle is
    overriding
    function Perimeter
      (This : in Object)
-     return Float;
+      return Float;
 
 private
 

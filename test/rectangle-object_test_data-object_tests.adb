@@ -34,15 +34,20 @@ package body Rectangle.Object_Test_Data.Object_Tests is
    procedure Test_Make_0b3516 (Gnattest_T : in out Test_Object) renames Test_Make;
 --  id:2.2/0b3516f945b2459c/Make/1/0/
    procedure Test_Make (Gnattest_T : in out Test_Object) is
-   --  rectangle.ads:14:3:Make
+   --  rectangle.ads:14:4:Make
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
 
+      Rectangle_One : constant Rectangle.Object := Rectangle.Make (1.0, 1.0);
+      Rectangle_Two : constant Rectangle.Object := Rectangle.Make (1.0, 1.0);
+
    begin
 
-      -- No unit tests for constructor
-      null;
+      AUnit.Assertions.Assert
+        (Actual   => Rectangle.Image (Rectangle_One),
+         Expected => Rectangle.Image (Rectangle_Two),
+         Message  => "Rectangles one and two are equivalent.");
 
 --  begin read only
    end Test_Make;
@@ -54,7 +59,7 @@ package body Rectangle.Object_Test_Data.Object_Tests is
    procedure Test_Image_d7bd4f (Gnattest_T : in out Test_Object) renames Test_Image;
 --  id:2.2/d7bd4f0b99859a1e/Image/1/0/
    procedure Test_Image (Gnattest_T : in out Test_Object) is
-   --  rectangle.ads:23:3:Image
+   --  rectangle.ads:23:4:Image
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -101,7 +106,7 @@ package body Rectangle.Object_Test_Data.Object_Tests is
    procedure Test_Equals_01c732 (Gnattest_T : in out Test_Object) renames Test_Equals;
 --  id:2.2/01c73284afd79bc2/Equals/1/0/
    procedure Test_Equals (Gnattest_T : in out Test_Object) is
-   --  rectangle.ads:36:3:Equals
+   --  rectangle.ads:36:4:Equals
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -139,7 +144,7 @@ package body Rectangle.Object_Test_Data.Object_Tests is
    procedure Test_Area_73bab9 (Gnattest_T : in out Test_Object) renames Test_Area;
 --  id:2.2/73bab9603bcb06f2/Area/1/0/
    procedure Test_Area (Gnattest_T : in out Test_Object) is
-   --  rectangle.ads:46:3:Area
+   --  rectangle.ads:46:4:Area
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -182,7 +187,7 @@ package body Rectangle.Object_Test_Data.Object_Tests is
    procedure Test_Perimeter_94f34e (Gnattest_T : in out Test_Object) renames Test_Perimeter;
 --  id:2.2/94f34ebcf482f399/Perimeter/1/0/
    procedure Test_Perimeter (Gnattest_T : in out Test_Object) is
-   --  rectangle.ads:54:3:Perimeter
+   --  rectangle.ads:54:4:Perimeter
 --  end read only
 
       pragma Unreferenced (Gnattest_T);

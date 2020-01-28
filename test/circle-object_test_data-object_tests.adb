@@ -41,10 +41,15 @@ package body Circle.Object_Test_Data.Object_Tests is
 
       pragma Unreferenced (Gnattest_T);
 
+      Circle_One   : constant Circle.Object := Circle.Make (1.0);
+      Circle_Two   : constant Circle.Object := Circle.Make (1.0);
+
    begin
 
-      -- No unit test for constructor
-      null;
+      AUnit.Assertions.Assert
+        (Actual   => Circle.Image (Circle_One),
+         Expected => Circle.Image (Circle_Two),
+         Message  => "Circles one and two are equivalent.");
 
 --  begin read only
    end Test_Make;
