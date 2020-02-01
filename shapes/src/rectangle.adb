@@ -7,7 +7,7 @@ package body Rectangle is
       Width  : in Float)
       return Object is
      (Object'(Length => Length,
-               Width  => Width));
+              Width  => Width));
 
    ------------------------------------------------------------------------------
    --
