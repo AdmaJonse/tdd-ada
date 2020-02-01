@@ -1,11 +1,11 @@
 all: default.cgpr test docs
-	gprbuild -p ../tdd.gpr
+	gprbuild -p ../shapes.gpr
 
 default.cgpr:
 	gprconfig --batch --config Ada --config C -o $@
 
 clean: force
-	gprclean -r ../tdd.gpr
+	gprclean -r ../shapes.gpr
 	rm -rf ../build/obj
 	rm -f ../build/default.cgpr
 	rm -rf ../docs/gnatdoc
@@ -13,13 +13,13 @@ clean: force
 
 test:
 	mkdir -p ../test/harness
-	gnat test -dd -P../tdd.gpr -v
+	gnat test -dd -P../shapes.gpr -v
 	gprbuild -p -P../test/harness/test_driver.gpr
 	../test/harness/test_runner.exe
 
 docs:
 	mkdir -p ../docs/gnatdoc
-	gnatdoc -P../tdd.gpr
+	gnatdoc -P../shapes.gpr
 
 run: all
 	../build/tdd.exe
