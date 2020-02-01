@@ -1,9 +1,9 @@
-project TDD is
+project Shapes is
 
   for Source_Dirs use ("src/**");
   for Object_Dir use "build/obj";
   for Exec_Dir use "build";
-  for Main use ("tdd_main.adb");
+  for Main use ("shapes_main.adb");
 
   package Ide is
     for Vcs_Kind use "git";
@@ -11,7 +11,7 @@ project TDD is
   end Ide;
 
   package Builder is
-    for Executable ("tdd_main.adb") use "tdd";
+    for Executable ("shapes_main.adb") use "tdd";
   end Builder;
 
   package Documentation is
@@ -27,5 +27,5 @@ project TDD is
     for Makefile use "Makefile";
   end Make;
 
-end TDD;
+end Shapes;
 

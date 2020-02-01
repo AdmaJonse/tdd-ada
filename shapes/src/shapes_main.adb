@@ -3,10 +3,8 @@ with Circle;
 with Rectangle;
 with Triangle;
 
-procedure Tdd_Main is
+procedure Shapes_Main is
 begin
-
-   Ada.Text_IO.Put_Line ("TDD Main");
 
    declare
 
@@ -41,4 +39,4 @@ begin
       Ada.Text_IO.Put_Line ("Perimeter: " & Tri.Perimeter'Img);
    end;
 
-end Tdd_Main;
+end Shapes_Main;
