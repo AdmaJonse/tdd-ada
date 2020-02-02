@@ -1,0 +1,4 @@
+build/obj
+build/shapes.exe
+docs/gnatdoc
+test/harness/
