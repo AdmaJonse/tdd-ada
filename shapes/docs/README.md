@@ -1,6 +1,6 @@
-# tdd-ada
+# Shapes Example
 
-Just practicing some test-driven development in Ada with gnattest.
+A quick example while I figure out a good way to structure and build the project.
 
 ## Building the project
 
