@@ -1,4 +1,4 @@
-package Currency with Pure is
+package Money_Interface with Pure is
 
    type Object is interface;
    
@@ -20,35 +20,10 @@ package Currency with Pure is
    --  @return  a boolean indicating whether the dollar objects
    --           are equivalent.
    --
-   function Equals 
-     (Left  : in Object;
-      Right : in Object)
-      return Boolean is abstract;
-   
-   --  Equality operator for two dollar objects.
-   --
-   --  @param Left   the first dollar object.
-   --  @param Right  the second dollar object.
-   --
-   --  @return  a boolean indicating whether the dollar objects
-   --           are equivalent.
-   --
    function "=" 
-     (Left  : in Object; 
-      Right : in Object) 
+     (Left  : in Object'Class; 
+      Right : in Object'Class) 
       return Boolean is abstract;
-   
-   --  Multiply this dollar object by the given integer multiplier.
-   --
-   --  @param This        the dollar object.
-   --  @param Multiplier  the amount to multiply this dollar by.
-   --
-   --  @return  the product as a dollar object.
-   --
-   function Times 
-     (This       : in Object;
-      Multiplier : in Integer)
-      return Object is abstract;
    
    --  Binary multiplication operator for a dollar object and an integer.
    --
@@ -62,18 +37,6 @@ package Currency with Pure is
       Right : in Integer) 
       return Object is abstract;
    
-   --  Multiply this dollar object by the given dollar object.
-   --
-   --  @param This        the dollar object.
-   --  @param Multiplier  the dollar object to multiply by.
-   --
-   --  @return  the product as a dollar object.
-   --
-   function Times 
-     (This       : in Object;
-      Multiplier : in Object)
-      return Object is abstract;
-   
    -- Binary multiplication operator for two dollar objects.
    --
    --  @param Left   the first dollar object.
@@ -85,5 +48,5 @@ package Currency with Pure is
      (Left  : in Object;
       Right : in Object) 
       return Object is abstract;
-
-end Currency;
+   
+end Money_Interface;

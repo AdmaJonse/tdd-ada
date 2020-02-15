@@ -3,7 +3,7 @@
 --  Such changes will be kept during further regeneration of this file.
 --  All code placed outside of test routine bodies will be lost. The
 --  code intended to set up and tear down the test environment should be
---  placed into Dollar.Object_Test_Data.
+--  placed into Franc.Object_Test_Data.
 
 with AUnit.Assertions; use AUnit.Assertions;
 with System.Assertions;
@@ -17,7 +17,7 @@ with System.Assertions;
 
 --  begin read only
 --  end read only
-package body Dollar.Object_Test_Data.Object_Tests is
+package body Franc.Object_Test_Data.Object_Tests is
 
 --  begin read only
 --  id:2.2/01/
@@ -34,7 +34,7 @@ package body Dollar.Object_Test_Data.Object_Tests is
    procedure Test_Make_fbb4cd (Gnattest_T : in out Test_Object) renames Test_Make;
 --  id:2.2/fbb4cd694ac362f2/Make/1/0/
    procedure Test_Make (Gnattest_T : in out Test_Object) is
-   --  dollar.ads:13:4:Make
+   --  franc.ads:13:4:Make
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -42,16 +42,16 @@ package body Dollar.Object_Test_Data.Object_Tests is
    begin
 
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (1) = Dollar.Make (1),
-         Message   => "Test #1 - Constructed Dollar does not match expected");
+        (Condition => Franc.Make (1) = Franc.Make (1),
+         Message   => "Test #1 - Constructed Franc does not match expected");
 
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (2) = Dollar.Make (2),
-         Message   => "Test #2 - Constructed Dollar does not match expected");
+        (Condition => Franc.Make (2) = Franc.Make (2),
+         Message   => "Test #2 - Constructed Franc does not match expected");
 
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (100) = Dollar.Make (100),
-         Message   => "Test #3 - Constructed Dollar does not match expected");
+        (Condition => Franc.Make (100) = Franc.Make (100),
+         Message   => "Test #3 - Constructed Franc does not match expected");
 
 --  begin read only
    end Test_Make;
@@ -67,4 +67,4 @@ begin
    null;
 --  begin read only
 --  end read only
-end Dollar.Object_Test_Data.Object_Tests;
+end Franc.Object_Test_Data.Object_Tests;

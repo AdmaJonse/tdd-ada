@@ -3,9 +3,9 @@
 --  automatically. Contents of this package can be modified in any way
 --  except for sections surrounded by a 'read only' marker.
 
-package body Dollar.Object_Test_Data is
+package body Franc.Object_Test_Data is
 
-   Local_Object : aliased GNATtest_Generated.GNATtest_Standard.Dollar.Object;
+   Local_Object : aliased GNATtest_Generated.GNATtest_Standard.Franc.Object;
    procedure Set_Up (Gnattest_T : in out Test_Object) is
    begin
       GNATtest_Generated.GNATtest_Standard.Money.Object_Test_Data.Object_Tests.Set_Up
@@ -19,4 +19,4 @@ package body Dollar.Object_Test_Data is
         (GNATtest_Generated.GNATtest_Standard.Money.Object_Test_Data.Object_Tests.Test_Object (Gnattest_T));
    end Tear_Down;
 
-end Dollar.Object_Test_Data;
+end Franc.Object_Test_Data;

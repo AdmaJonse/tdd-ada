@@ -3,19 +3,23 @@
 --  automatically. Contents of this package can be modified in any way
 --  except for sections surrounded by a 'read only' marker.
 
-with Money.Object_Test_Data.Object_Tests;
+
+with AUnit.Test_Fixtures;
 
 with GNATtest_Generated;
 
-package Dollar.Object_Test_Data is
+package Money.Object_Test_Data is
+
+   type Object_Access is access all GNATtest_Generated.GNATtest_Standard.Money.Object'Class;
 
 --  begin read only
-   type Test_Object is new
-     GNATtest_Generated.GNATtest_Standard.Money.Object_Test_Data.Object_Tests.Test_Object
+   type Test_Object is new AUnit.Test_Fixtures.Test_Fixture
 --  end read only
-   with null record;
+   with record
+      Fixture : Object_Access;
+   end record;
 
    procedure Set_Up (Gnattest_T : in out Test_Object);
    procedure Tear_Down (Gnattest_T : in out Test_Object);
 
-end Dollar.Object_Test_Data;
+end Money.Object_Test_Data;
