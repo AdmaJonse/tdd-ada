@@ -1,5 +1,5 @@
-package body Dollar is
-   
+package body Franc is
+
    -----------------------------------------------------------------------------
    --
    function Make 
@@ -10,5 +10,6 @@ package body Dollar is
       return (Money.Make (Amount) with null record);
       
    end Make;
+   
+end Franc;
 
-end Dollar;

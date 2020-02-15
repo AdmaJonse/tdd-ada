@@ -7,7 +7,7 @@ with Money.Object_Test_Data.Object_Tests;
 
 with GNATtest_Generated;
 
-package Dollar.Object_Test_Data is
+package Franc.Object_Test_Data is
 
 --  begin read only
    type Test_Object is new
@@ -18,4 +18,4 @@ package Dollar.Object_Test_Data is
    procedure Set_Up (Gnattest_T : in out Test_Object);
    procedure Tear_Down (Gnattest_T : in out Test_Object);
 
-end Dollar.Object_Test_Data;
+end Franc.Object_Test_Data;
