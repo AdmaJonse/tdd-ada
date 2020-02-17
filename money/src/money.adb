@@ -8,7 +8,29 @@ package body Money is
    function Make
      (Amount : in Integer)
       return Object is
-     (Object'(Amount => Amount));
+     (Make (Amount, None));
+
+   -----------------------------------------------------------------------------
+   --
+   function Make
+     (Amount   : in Integer;
+      Currency : in Currency_Type)
+      return Object is
+     (Object'(Amount, Currency));
+
+   -----------------------------------------------------------------------------
+   --
+   function Franc
+     (Amount   : in Integer)
+      return Object is
+     (Make (Amount, CHF));
+
+   -----------------------------------------------------------------------------
+   --
+   function Dollar
+     (Amount   : in Integer)
+      return Object is
+     (Make (Amount, USD));
 
    -----------------------------------------------------------------------------
    --
@@ -23,7 +45,8 @@ package body Money is
      (Left  : in Object;
       Right : in Object)
       return Boolean is
-     (Left.Amount = Right.Amount);
+     (Left.Amount = Right.Amount and
+      Left.Get_Currency = Right.Get_Currency);
 
    -----------------------------------------------------------------------------
    --
@@ -31,7 +54,8 @@ package body Money is
      (Left  : in Object;
       Right : in Object)
       return Object is
-     (Object'(Amount => Left.Amount * Right.Amount));
+     (Make (Amount   => Left.Amount * Right.Amount,
+            Currency => Left.Currency));
 
    -----------------------------------------------------------------------------
    --
@@ -39,6 +63,14 @@ package body Money is
      (Left  : in Object;
       Right : in Integer)
       return Object is
-     (Object'(Amount => Left.Amount * Right));
+     (Make (Amount   => Left.Amount * Right,
+            Currency => Left.Currency));
+
+   -----------------------------------------------------------------------------
+   --
+   function Get_Currency
+     (This : in Object)
+      return Currency_Type is
+     (This.Currency);
 
 end Money;

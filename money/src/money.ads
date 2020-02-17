@@ -1,4 +1,5 @@
 with Money_Interface;
+with Money_Types; use Money_Types;
 
 package Money is
 
@@ -6,12 +7,44 @@ package Money is
    
    --  Constructor for the money object.
    --
-   --  @param Amount  the value of the money object.
+   --  @param Amount    the value of the money object.
+   --  @param Currency  the currency type of the money object.
    --
    --  @return  the money object
    --  
-   
    function Make 
+     (Amount : in Integer)
+      return Object;
+   
+   --  Constructor for the money object.
+   --
+   --  @param Amount    the value of the money object.
+   --  @param Currency  the currency type of the money object.
+   --
+   --  @return  the money object
+   --  
+   function Make 
+     (Amount   : in Integer;
+      Currency : in Currency_Type)
+      return Object;
+   
+   --  Constructor for a franc object.
+   --
+   --  @param Amount  the value of the franc object.
+   --
+   --  @return  a franc object
+   --
+   function Franc 
+     (Amount : in Integer)
+      return Object;
+
+   --  Constructor for a dollar object.
+   --
+   --  @param Amount  the value of the dollar object.
+   --
+   --  @return  a dollar object
+   --
+   function Dollar 
      (Amount : in Integer)
       return Object;
    
@@ -66,11 +99,23 @@ package Money is
       Right : in Object) 
       return Object;
    
+   --  Return the currency type for this money object.
+   -- 
+   --  @param This  the money object
+   --
+   --  @return  the currency of this money object
+   --
+   overriding
+   function Get_Currency
+     (This : in Object)
+      return Currency_Type;
+   
 private
    
    type Object is new Money_Interface.Object with
      record
-        Amount : Integer;
+        Amount   : Integer;
+        Currency : Currency_Type;
      end record;
 
 end Money;
