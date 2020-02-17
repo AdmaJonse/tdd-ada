@@ -10,19 +10,31 @@ package Money.Object_Test_Data.Object_Tests is
      GNATtest_Generated.GNATtest_Standard.Money.Object_Test_Data.Test_Object with null record;
 
    procedure Test_Make_fbb4cd (Gnattest_T : in out Test_Object);
-   --  money.ads:14:4:Make
+   --  money.ads:15:4:Make
+
+   procedure Test_Make_3dffd0 (Gnattest_T : in out Test_Object);
+   --  money.ads:26:4:Make
+
+   procedure Test_Franc_fe330c (Gnattest_T : in out Test_Object);
+   --  money.ads:37:4:Franc
+
+   procedure Test_Dollar_9ff2ad (Gnattest_T : in out Test_Object);
+   --  money.ads:47:4:Dollar
 
    procedure Test_Image_3f8c3b (Gnattest_T : in out Test_Object);
-   --  money.ads:24:4:Image
+   --  money.ads:57:4:Image
 
    procedure Test_Equal_34167a (Gnattest_T : in out Test_Object);
-   --  money.ads:37:4:Equal
+   --  money.ads:70:4:Equal
 
    procedure Test_Multiply_28f591 (Gnattest_T : in out Test_Object);
-   --  money.ads:50:4:Multiply
+   --  money.ads:83:4:Multiply
 
    procedure Test_Multiply_651ae7 (Gnattest_T : in out Test_Object);
-   --  money.ads:63:4:Multiply
+   --  money.ads:96:4:Multiply
+
+   procedure Test_Get_Currency_a7cae9 (Gnattest_T : in out Test_Object);
+   --  money.ads:108:4:Get_Currency
 
 end Money.Object_Test_Data.Object_Tests;
 --  end read only

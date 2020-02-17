@@ -15,8 +15,7 @@ with System.Assertions;
 --
 --  end read only
 
-with Dollar;
-with Franc;
+with Money_Types; use Money_Types;
 
 --  begin read only
 --  end read only
@@ -33,11 +32,11 @@ package body Money.Object_Test_Data.Object_Tests is
 --  end read only
 
 --  begin read only
-   procedure Test_Make (Gnattest_T : in out Test_Object);
-   procedure Test_Make_fbb4cd (Gnattest_T : in out Test_Object) renames Test_Make;
+   procedure Test_1_Make (Gnattest_T : in out Test_Object);
+   procedure Test_Make_fbb4cd (Gnattest_T : in out Test_Object) renames Test_1_Make;
 --  id:2.2/fbb4cd694ac362f2/Make/1/0/
-   procedure Test_Make (Gnattest_T : in out Test_Object) is
-   --  money.ads:14:4:Make
+   procedure Test_1_Make (Gnattest_T : in out Test_Object) is
+   --  money.ads:15:4:Make
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -57,7 +56,86 @@ package body Money.Object_Test_Data.Object_Tests is
          Message   => "Test #3 - Constructed Money does not match expected");
 
 --  begin read only
-   end Test_Make;
+   end Test_1_Make;
+--  end read only
+
+
+--  begin read only
+   procedure Test_2_Make (Gnattest_T : in out Test_Object);
+   procedure Test_Make_3dffd0 (Gnattest_T : in out Test_Object) renames Test_2_Make;
+--  id:2.2/3dffd06ba26fd195/Make/0/0/
+   procedure Test_2_Make (Gnattest_T : in out Test_Object) is
+   --  money.ads:26:4:Make
+--  end read only
+
+      pragma Unreferenced (Gnattest_T);
+
+   begin
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (1, CHF) = Money.Make (1, CHF),
+         Message   => "Test #1 - Constructed Money does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (2, USD) = Money.Make (2, USD),
+         Message   => "Test #2 - Constructed Money does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (100, None) = Money.Make (100, None),
+         Message   => "Test #3 - Constructed Money does not match expected");
+
+--  begin read only
+   end Test_2_Make;
+--  end read only
+
+
+--  begin read only
+   procedure Test_Franc (Gnattest_T : in out Test_Object);
+   procedure Test_Franc_fe330c (Gnattest_T : in out Test_Object) renames Test_Franc;
+--  id:2.2/fe330c269d5eb017/Franc/1/0/
+   procedure Test_Franc (Gnattest_T : in out Test_Object) is
+   --  money.ads:37:4:Franc
+--  end read only
+
+      pragma Unreferenced (Gnattest_T);
+
+   begin
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Franc (1) = Money.Make (1, CHF),
+         Message   => "Test #1 - constructed franc does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Franc (2) = Money.Franc (2),
+         Message   => "Test #2 - constructed franc does not match expected");
+
+--  begin read only
+   end Test_Franc;
+--  end read only
+
+
+--  begin read only
+   procedure Test_Dollar (Gnattest_T : in out Test_Object);
+   procedure Test_Dollar_9ff2ad (Gnattest_T : in out Test_Object) renames Test_Dollar;
+--  id:2.2/9ff2ad1f012fa33c/Dollar/1/0/
+   procedure Test_Dollar (Gnattest_T : in out Test_Object) is
+   --  money.ads:47:4:Dollar
+--  end read only
+
+      pragma Unreferenced (Gnattest_T);
+
+   begin
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Dollar (1) = Money.Make (1, USD),
+         Message   => "Test #1 - constructed dollar does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Dollar (2) = Money.Dollar (2),
+         Message   => "Test #2 - constructed dollar does not match expected");
+
+--  begin read only
+   end Test_Dollar;
 --  end read only
 
 
@@ -66,7 +144,7 @@ package body Money.Object_Test_Data.Object_Tests is
    procedure Test_Image_3f8c3b (Gnattest_T : in out Test_Object) renames Test_Image;
 --  id:2.2/3f8c3beed6b9a75f/Image/1/0/
    procedure Test_Image (Gnattest_T : in out Test_Object) is
-   --  money.ads:24:4:Image
+   --  money.ads:57:4:Image
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -89,12 +167,12 @@ package body Money.Object_Test_Data.Object_Tests is
          Message  => "Test #3 - image does not match expected");
       
       AUnit.Assertions.Assert
-        (Actual   => Franc.Make (123).Image,
+        (Actual   => Money.Franc (123).Image,
          Expected => "$123",
          Message  => "Test #4 - image does not match expected");
       
       AUnit.Assertions.Assert
-        (Actual   => Dollar.Make (2345).Image,
+        (Actual   => Money.Dollar (2345).Image,
          Expected => "$2345",
          Message  => "Test #5 - image does not match expected");
 
@@ -108,13 +186,10 @@ package body Money.Object_Test_Data.Object_Tests is
    procedure Test_Equal_34167a (Gnattest_T : in out Test_Object) renames Test_Equal;
 --  id:2.2/34167a667df2605e/Equal/1/0/
    procedure Test_Equal (Gnattest_T : in out Test_Object) is
-   --  money.ads:37:4:"="
+   --  money.ads:70:4:"="
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
-      
-      use type Dollar.Object;
-      use type Franc.Object;
 
    begin
 
@@ -127,20 +202,24 @@ package body Money.Object_Test_Data.Object_Tests is
          Message   => "Test #2 - money objects are equivalent.");
       
       AUnit.Assertions.Assert
-        (Condition => Franc.Make (5) = Franc.Make (5),
+        (Condition => Money.Franc (5) = Money.Franc (5),
          Message   => "Test #3 - franc objects are not equivalent.");
       
       AUnit.Assertions.Assert
-        (Condition => Franc.Make (5) /= Franc.Make (9),
+        (Condition => Money.Franc (5) /= Money.Franc (9),
          Message   => "Test #4 - franc objects are equivalent.");
       
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (6) = Dollar.Make (6),
+        (Condition => Money.Dollar (6) = Money.Dollar (6),
          Message   => "Test #5 - dollar objects are not equivalent.");
       
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (6) /= Dollar.Make (99),
+        (Condition => Money.Dollar (6) /= Money.Dollar (99),
          Message   => "Test #6 - dollar objects are equivalent.");
+      
+      AUnit.Assertions.Assert
+        (Condition => Money.Dollar (6) /= Money.Franc (6),
+         Message   => "Test #7 - francs and dollars should not be equivalent.");
       
 --  begin read only
    end Test_Equal;
@@ -152,14 +231,10 @@ package body Money.Object_Test_Data.Object_Tests is
    procedure Test_Multiply_28f591 (Gnattest_T : in out Test_Object) renames Test_1_Multiply;
 --  id:2.2/28f591cae0c9c9cb/Multiply/1/0/
    procedure Test_1_Multiply (Gnattest_T : in out Test_Object) is
-   --  money.ads:50:4:"*"
+   --  money.ads:83:4:"*"
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
-      
-      use type Dollar.Object;
-      use type Franc.Object;
-
    begin
 
       AUnit.Assertions.Assert
@@ -175,11 +250,11 @@ package body Money.Object_Test_Data.Object_Tests is
          Message   => "Test #3 - Multiplied Money does not match expected");
       
       AUnit.Assertions.Assert
-        (Condition => Franc.Make (100) = Franc.Make (10) * Franc.Make (10),
+        (Condition => Money.Franc (100) = Money.Franc (10) * Money.Franc (10),
          Message   => "Test #4 - Multiplied Franc does not match expected");
 
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (144) = Dollar.Make (12) * Dollar.Make (12),
+        (Condition => Money.Dollar (144) = Money.Dollar (12) * Money.Dollar (12),
          Message   => "Test #5 - Multiplied Dollar does not match expected");
 
 --  begin read only
@@ -192,13 +267,10 @@ package body Money.Object_Test_Data.Object_Tests is
    procedure Test_Multiply_651ae7 (Gnattest_T : in out Test_Object) renames Test_2_Multiply;
 --  id:2.2/651ae7870a94af9b/Multiply/0/0/
    procedure Test_2_Multiply (Gnattest_T : in out Test_Object) is
-   --  money.ads:63:4:"*"
+   --  money.ads:96:4:"*"
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
-      
-      use type Dollar.Object;
-      use type Franc.Object;
 
    begin
 
@@ -215,15 +287,46 @@ package body Money.Object_Test_Data.Object_Tests is
          Message   => "Test #3 - Multiplied Money does not match expected");
       
       AUnit.Assertions.Assert
-        (Condition => Franc.Make (25) = Franc.Make (5) * 5,
+        (Condition => Money.Franc (25) = Money.Franc (5) * 5,
          Message   => "Test #4 - Multiplied Franc does not match expected");
       
       AUnit.Assertions.Assert
-        (Condition => Dollar.Make (25) = Dollar.Make (5) * 5,
+        (Condition => Money.Dollar (25) = Money.Dollar (5) * 5,
          Message   => "Test #5 - Multiplied Dollar does not match expected");
 
 --  begin read only
    end Test_2_Multiply;
+--  end read only
+
+
+--  begin read only
+   procedure Test_Get_Currency (Gnattest_T : in out Test_Object);
+   procedure Test_Get_Currency_a7cae9 (Gnattest_T : in out Test_Object) renames Test_Get_Currency;
+--  id:2.2/a7cae9ceed008bec/Get_Currency/1/0/
+   procedure Test_Get_Currency (Gnattest_T : in out Test_Object) is
+   --  money.ads:108:4:Get_Currency
+--  end read only
+
+      pragma Unreferenced (Gnattest_T);
+      
+      use type Money_Types.Currency_Type;
+
+   begin
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (1).Get_Currency = None,
+         Message   => "Test #1 - money currency is not None");
+      
+      AUnit.Assertions.Assert
+        (Condition => Money.Franc (1).Get_Currency = CHF,
+         Message   => "Test #2 - franc currency is not CHF");
+      
+      AUnit.Assertions.Assert
+        (Condition => Money.Dollar (1).Get_Currency = USD,
+         Message   => "Test #3 - dollar currency is not USD");
+
+--  begin read only
+   end Test_Get_Currency;
 --  end read only
 
 
