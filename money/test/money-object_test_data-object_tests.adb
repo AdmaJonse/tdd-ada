@@ -227,16 +227,91 @@ package body Money.Object_Test_Data.Object_Tests is
 
 
 --  begin read only
-   procedure Test_1_Multiply (Gnattest_T : in out Test_Object);
-   procedure Test_Multiply_28f591 (Gnattest_T : in out Test_Object) renames Test_1_Multiply;
---  id:2.2/28f591cae0c9c9cb/Multiply/1/0/
-   procedure Test_1_Multiply (Gnattest_T : in out Test_Object) is
-   --  money.ads:83:4:"*"
+   procedure Test_1_Plus (Gnattest_T : in out Test_Object);
+   procedure Test_Plus_f5e1b6 (Gnattest_T : in out Test_Object) renames Test_1_Plus;
+--  id:2.2/f5e1b6fe05423613/Plus/1/0/
+   procedure Test_1_Plus (Gnattest_T : in out Test_Object) is
+   --  money.ads:83:4:"+"
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
+
    begin
 
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (7) = Money.Make (5) + Money.Make (2),
+         Message   => "Test #1 - sum does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (8) = Money.Make (5) + Money.Make (3),
+         Message   => "Test #2 - sum does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (5) = Money.Make (2) + Money.Make (3),
+         Message   => "Test #3 - sum does not match expected");
+      
+      AUnit.Assertions.Assert
+        (Condition => Money.Franc (20) = Money.Franc (10) + Money.Franc (10),
+         Message   => "Test #4 - sum does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Dollar (24) = Money.Dollar (12) + Money.Dollar (12),
+         Message   => "Test #5 - sum does not match expected");
+
+--  begin read only
+   end Test_1_Plus;
+--  end read only
+
+
+--  begin read only
+   procedure Test_2_Plus (Gnattest_T : in out Test_Object);
+   procedure Test_Plus_d39bde (Gnattest_T : in out Test_Object) renames Test_2_Plus;
+--  id:2.2/d39bdec177301aef/Plus/0/0/
+   procedure Test_2_Plus (Gnattest_T : in out Test_Object) is
+   --  money.ads:96:4:"+"
+--  end read only
+
+      pragma Unreferenced (Gnattest_T);
+
+   begin
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (4) = Money.Make (2) + 2,
+         Message   => "Test #1 - sum does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (6) = Money.Make (3) + 3,
+         Message   => "Test #2 - sum does not match expected");
+
+      AUnit.Assertions.Assert
+        (Condition => Money.Make (10) = Money.Make (5) + 5,
+         Message   => "Test #3 - sum does not match expected");
+      
+      AUnit.Assertions.Assert
+        (Condition => Money.Franc (10) = Money.Franc (5) + 5,
+         Message   => "Test #4 - sum does not match expected");
+      
+      AUnit.Assertions.Assert
+        (Condition => Money.Dollar (10) = Money.Dollar (5) + 5,
+         Message   => "Test #5 - sum does not match expected");
+
+--  begin read only
+   end Test_2_Plus;
+--  end read only
+
+
+--  begin read only
+   procedure Test_2_Multiply (Gnattest_T : in out Test_Object);
+   procedure Test_Multiply_651ae7 (Gnattest_T : in out Test_Object) renames Test_2_Multiply;
+--  id:2.2/651ae7870a94af9b/Multiply/0/0/
+   procedure Test_2_Multiply (Gnattest_T : in out Test_Object) is
+   --  money.ads:109:4:"*"
+--  end read only
+
+      pragma Unreferenced (Gnattest_T);
+
+   begin
+      
       AUnit.Assertions.Assert
         (Condition => Money.Make (10) = Money.Make (5) * Money.Make (2),
          Message   => "Test #1 - Multiplied Money does not match expected");
@@ -258,20 +333,19 @@ package body Money.Object_Test_Data.Object_Tests is
          Message   => "Test #5 - Multiplied Dollar does not match expected");
 
 --  begin read only
-   end Test_1_Multiply;
+   end Test_2_Multiply;
 --  end read only
 
 
 --  begin read only
-   procedure Test_2_Multiply (Gnattest_T : in out Test_Object);
-   procedure Test_Multiply_651ae7 (Gnattest_T : in out Test_Object) renames Test_2_Multiply;
---  id:2.2/651ae7870a94af9b/Multiply/0/0/
-   procedure Test_2_Multiply (Gnattest_T : in out Test_Object) is
-   --  money.ads:96:4:"*"
+   procedure Test_1_Multiply (Gnattest_T : in out Test_Object);
+   procedure Test_Multiply_28f591 (Gnattest_T : in out Test_Object) renames Test_1_Multiply;
+--  id:2.2/28f591cae0c9c9cb/Multiply/1/0/
+   procedure Test_1_Multiply (Gnattest_T : in out Test_Object) is
+   --  money.ads:122:4:"*"
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
-
    begin
 
       AUnit.Assertions.Assert
@@ -295,7 +369,7 @@ package body Money.Object_Test_Data.Object_Tests is
          Message   => "Test #5 - Multiplied Dollar does not match expected");
 
 --  begin read only
-   end Test_2_Multiply;
+   end Test_1_Multiply;
 --  end read only
 
 
@@ -304,7 +378,7 @@ package body Money.Object_Test_Data.Object_Tests is
    procedure Test_Get_Currency_a7cae9 (Gnattest_T : in out Test_Object) renames Test_Get_Currency;
 --  id:2.2/a7cae9ceed008bec/Get_Currency/1/0/
    procedure Test_Get_Currency (Gnattest_T : in out Test_Object) is
-   --  money.ads:108:4:Get_Currency
+   --  money.ads:134:4:Get_Currency
 --  end read only
 
       pragma Unreferenced (Gnattest_T);

@@ -27,14 +27,20 @@ package Money.Object_Test_Data.Object_Tests is
    procedure Test_Equal_34167a (Gnattest_T : in out Test_Object);
    --  money.ads:70:4:Equal
 
-   procedure Test_Multiply_28f591 (Gnattest_T : in out Test_Object);
-   --  money.ads:83:4:Multiply
+   procedure Test_Plus_f5e1b6 (Gnattest_T : in out Test_Object);
+   --  money.ads:83:4:Plus
+
+   procedure Test_Plus_d39bde (Gnattest_T : in out Test_Object);
+   --  money.ads:96:4:Plus
 
    procedure Test_Multiply_651ae7 (Gnattest_T : in out Test_Object);
-   --  money.ads:96:4:Multiply
+   --  money.ads:109:4:Multiply
+
+   procedure Test_Multiply_28f591 (Gnattest_T : in out Test_Object);
+   --  money.ads:122:4:Multiply
 
    procedure Test_Get_Currency_a7cae9 (Gnattest_T : in out Test_Object);
-   --  money.ads:108:4:Get_Currency
+   --  money.ads:134:4:Get_Currency
 
 end Money.Object_Test_Data.Object_Tests;
 --  end read only

@@ -50,6 +50,24 @@ package body Money is
 
    -----------------------------------------------------------------------------
    --
+   function "+"
+     (Left  : in Object;
+      Right : in Object)
+      return Object is
+     (Make (Amount   => Left.Amount + Right.Amount,
+            Currency => Left.Currency));
+
+   -----------------------------------------------------------------------------
+   --
+   function "+"
+     (Left  : in Object;
+      Right : in Integer)
+      return Object is
+     (Make (Amount   => Left.Amount + Right,
+            Currency => Left.Currency));
+
+   -----------------------------------------------------------------------------
+   --
    function "*"
      (Left  : in Object;
       Right : in Object)

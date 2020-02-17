@@ -14,7 +14,7 @@ package Money_Interface with Pure is
      (This : in Object)
       return String is abstract;
    
-   --  Equality operator for two dollar money.
+   --  Equality operator for two money objects.
    --
    --  @param Left   the first money object.
    --  @param Right  the second money object.
@@ -23,18 +23,30 @@ package Money_Interface with Pure is
    --           are equivalent.
    --
    function "=" 
-     (Left  : in Object'Class; 
-      Right : in Object'Class) 
+     (Left  : in Object; 
+      Right : in Object) 
       return Boolean is abstract;
    
-   --  Binary multiplication operator for a money object and an integer.
+   --  Binary addition operator for two money objects.
    --
    --  @param Left   the first money object.
    --  @param Right  the second money object.
    --
-   --  @return  the product as a money object.
+   --  @return  the sum as a money object.
    --
-   function "*" 
+   function "+" 
+     (Left  : in Object; 
+      Right : in Object) 
+      return Object is abstract;
+   
+   --  Binary addition operator for a money object and an integer.
+   --
+   --  @param Left   the first money object.
+   --  @param Right  the integer to add to the amount.
+   --
+   --  @return  the sum as a money object.
+   --
+   function "+" 
      (Left  : in Object; 
       Right : in Integer) 
       return Object is abstract;
@@ -49,6 +61,18 @@ package Money_Interface with Pure is
    function "*" 
      (Left  : in Object;
       Right : in Object) 
+      return Object is abstract;
+   
+   --  Binary multiplication operator for a money object and an integer.
+   --
+   --  @param Left   the first money object.
+   --  @param Right  integer to multiple amount by.
+   --
+   --  @return  the product as a money object.
+   --
+   function "*" 
+     (Left  : in Object; 
+      Right : in Integer) 
       return Object is abstract;
    
    --  Return the currency type for this money object.

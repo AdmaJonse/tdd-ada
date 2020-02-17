@@ -72,17 +72,30 @@ package Money is
      (Left  : in Object; 
       Right : in Object) 
       return Boolean;
-
-   --  Binary multiplication operator for a money object and an integer.
+   
+   -- Binary addition operator for two money objects.
    --
    --  @param Left   the first money object.
    --  @param Right  the second money object.
    --
-   --  @return  the product as a money object
+   --  @return  the sum as a money object
    --
    overriding
-   function "*" 
-     (Left  : in Object; 
+   function "+" 
+     (Left  : in Object;
+      Right : in Object) 
+      return Object;
+   
+   -- Binary addition operator for a money object and an integer.
+   --
+   --  @param Left   the first money object.
+   --  @param Right  the integer to add to the amount.
+   --
+   --  @return  the sum as a money object
+   --
+   overriding
+   function "+" 
+     (Left  : in Object;
       Right : in Integer) 
       return Object;
    
@@ -97,6 +110,19 @@ package Money is
    function "*" 
      (Left  : in Object;
       Right : in Object) 
+      return Object;
+   
+   --  Binary multiplication operator for a money object and an integer.
+   --
+   --  @param Left   the first money object.
+   --  @param Right  the second money object.
+   --
+   --  @return  the product as a money object
+   --
+   overriding
+   function "*" 
+     (Left  : in Object; 
+      Right : in Integer) 
       return Object;
    
    --  Return the currency type for this money object.
