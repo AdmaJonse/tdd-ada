@@ -1,5 +1,5 @@
 # tdd-ada
-Examples from Test-Driven Development By Example (Kent Beck) implemented in Ada.
+Examples from Kent Beck's `Test-Driven Development By Example` implemented in Ada.
 
 ## Examples
 1. [Shapes Example](shapes/docs/README.md)
